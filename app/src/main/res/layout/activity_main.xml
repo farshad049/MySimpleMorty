@@ -6,13 +6,99 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivHeader"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintDimensionRatio="4:3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/backgrounds/scenic[7]" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivHeader"
+        app:layout_constraintEnd_toStartOf="@+id/ivGender"
+        android:layout_margin="18dp"
+        tools:text="Morty Smith" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:text="Alive"
+        android:inputType="textCapSentences"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/tvName"
+        app:layout_constraintStart_toStartOf="@id/tvName"
+        />
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivGender"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        tools:srcCompat="@drawable/ic_male_24"
+        app:layout_constraintStart_toEndOf="@id/tvName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvName"
+        app:layout_constraintBottom_toBottomOf="@id/tvName"
+        />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintTop_toBottomOf="@id/tvStatus"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="12dp"
+        android:background="?colorPrimary"
+        />
+    
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvOriginTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Origin"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@id/divider"
+        app:layout_constraintStart_toStartOf="@id/tvName"
+        android:textSize="24sp"
+        android:textStyle="italic"
+        android:textColor="@color/black"
+        />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvOrigin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Earth"
+        app:layout_constraintTop_toBottomOf="@id/tvOriginTitle"
+        app:layout_constraintStart_toStartOf="@id/tvName"
+        />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvSpeciesTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Species"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@id/tvOrigin"
+        app:layout_constraintStart_toStartOf="@id/tvName"
+        android:textSize="24sp"
+        android:textStyle="italic"
+        android:textColor="@color/black"
+        />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvSpecies"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Earth"
+        app:layout_constraintTop_toBottomOf="@id/tvSpeciesTitle"
+        app:layout_constraintStart_toStartOf="@id/tvName"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
