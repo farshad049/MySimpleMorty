@@ -1,4 +1,4 @@
-package com.example.mysimplemorty
+package com.example.mysimplemorty.network
 
 import retrofit2.Response
 

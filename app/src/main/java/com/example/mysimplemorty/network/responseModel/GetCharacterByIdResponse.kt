@@ -1,8 +1,6 @@
-package com.example.mysimplemorty
+package com.example.mysimplemorty.network.responseModel
 
-import com.squareup.moshi.Json
-
-data class GetCharacterByIDResponse(
+data class GetCharacterByIdResponse(
     //use this to name the field with another name
     //@Json(name="full_name")
     val created: String = "",

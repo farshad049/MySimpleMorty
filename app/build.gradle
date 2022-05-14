@@ -1,6 +1,12 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+}
+
+//Epoxy
+kapt{
+    correctErrorTypes = true
 }
 
 android {
@@ -48,6 +54,10 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.71828'
     // view model coroutine
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
+    //Epoxy
+    def epoxyVersion="5.0.0-beta05"
+    implementation "com.airbnb.android:epoxy:$epoxyVersion"
+    kapt("com.airbnb.android:epoxy-processor:$epoxyVersion")
 
 
 
