@@ -20,16 +20,19 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 class MainActivity : AppCompatActivity() {
     private var _binding: ActivityMainBinding? = null
     private val binding get() = _binding!!
+    private val viewModel:SharedViewModel by lazy {
+        ViewModelProvider(this).get(SharedViewModel::class.java)
+    }
+    private val controller=CharacterDetailsEpoxyController()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val viewModel:SharedViewModel by lazy {
-            ViewModelProvider(this).get(SharedViewModel::class.java)
-        }
 
-        val controller=CharacterDetailsEpoxyController()
+
+
         binding.epoxyRecyclerView.setControllerAndBuildModels(controller)
 
 
@@ -55,6 +58,8 @@ class MainActivity : AppCompatActivity() {
     }//FUN
 
 
-
-
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding=null
+    }
 }
