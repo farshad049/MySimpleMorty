@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="?attr/background"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cardCornerRadius="8dp">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvHeaderTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="header title"
+        android:textColor="?attr/colorOnBackground"
+        android:textSize="22sp"
+        android:padding="8dp"
+        android:textStyle="bold|italic"
+
+        />
+
+</com.google.android.material.card.MaterialCardView>
