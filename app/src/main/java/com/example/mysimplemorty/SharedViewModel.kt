@@ -8,6 +8,7 @@ import com.example.mysimplemorty.domain.models.Character
 import com.example.mysimplemorty.network.responseModel.GetCharacterByIdResponse
 import kotlinx.coroutines.launch
 
+//this is for characterDetailActivity
 class SharedViewModel:ViewModel() {
     private val repository=SharedRepository()
     private val _characterByIdLiveData=MutableLiveData<Character?>()
