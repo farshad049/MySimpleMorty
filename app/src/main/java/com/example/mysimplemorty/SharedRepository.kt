@@ -22,7 +22,7 @@ class SharedRepository {
     : List<GetEpisodeByIdResponse> {
 
         //take the episode number from the end of link of each episode
-        //we use map to modify changes on a single member of a list and then extend that modo to whole list
+        //we use map to modify the list and extend it to a new format list
         //this return something like this "[1,2,3]"
         val episodeRange=characterResponse.episode.map {
             it.substring(it.lastIndexOf("/")+1)

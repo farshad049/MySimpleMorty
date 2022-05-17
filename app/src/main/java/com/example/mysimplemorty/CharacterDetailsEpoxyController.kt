@@ -1,10 +1,10 @@
 package com.example.mysimplemorty
 
+import com.airbnb.epoxy.CarouselModel_
 import com.airbnb.epoxy.EpoxyController
-import com.example.mysimplemorty.databinding.ModelCharacterDetailsDataPointBinding
-import com.example.mysimplemorty.databinding.ModelCharacterDetailsHeaderBinding
-import com.example.mysimplemorty.databinding.ModelCharacterDetailsImageBinding
+import com.example.mysimplemorty.databinding.*
 import com.example.mysimplemorty.domain.models.Character
+import com.example.mysimplemorty.domain.models.Episode
 import com.example.mysimplemorty.epoxy.LoadingEpoxyModel
 import com.example.mysimplemorty.epoxy.ViewBindingKotlinModel
 import com.example.mysimplemorty.network.responseModel.GetCharacterByIdResponse
@@ -41,8 +41,23 @@ class CharacterDetailsEpoxyController:EpoxyController() {
 
         Header(items!!).id("header").addTo(this)
         Image(items!!.image).id("image").addTo(this)
+        Title("Episodes").id("episodes").addTo(this)
+
+        //episode list carousel section
+        if (items!!.episodeList.isNotEmpty()){
+            val list=items!!.episodeList.map {
+                EpisodeModel(it).id(it.id)
+            }
+            CarouselModel_()
+                .id("episode_carousel")
+                .models(list)
+                .numViewsToShowOnScreen(1.15f)
+                .addTo(this)
+        }
+
         DataPoint("Origin",items!!.origin.name).id("Origin").addTo(this)
         DataPoint("Species",items!!.species).id("Species").addTo(this)
+
 
     }
 
@@ -79,6 +94,21 @@ class CharacterDetailsEpoxyController:EpoxyController() {
         override fun ModelCharacterDetailsDataPointBinding.bind() {
             tvTitle.text=title
             tvDescription.text= description
+        }
+    }
+
+    data class Title(val title:String)
+        :ViewBindingKotlinModel<ModelTitleBinding>(R.layout.model_title) {
+        override fun ModelTitleBinding.bind() {
+            tvEpisode.text=title
+        }
+    }
+
+    data class EpisodeModel(val episode: Episode)
+        :ViewBindingKotlinModel<ModelEpisodeCarouselItemBinding>(R.layout.model_episode_carousel_item) {
+        override fun ModelEpisodeCarouselItemBinding.bind() {
+            tvSeasonEpisode.text=episode.episode
+            tvEpisodeName.text="${episode.name} + /n ${episode.airDate}"
         }
     }
 
