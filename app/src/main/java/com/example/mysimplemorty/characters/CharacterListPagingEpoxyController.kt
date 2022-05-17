@@ -12,13 +12,16 @@ import com.example.mysimplemorty.epoxy.ViewBindingKotlinModel
 import com.example.mysimplemorty.network.responseModel.GetCharacterByIdResponse
 import com.squareup.picasso.Picasso
 
-class CharacterListPagingEpoxyController:PagedListEpoxyController<GetCharacterByIdResponse>() {
+class CharacterListPagingEpoxyController(
+    private val onCharacterClick:(Int) -> Unit
+):PagedListEpoxyController<GetCharacterByIdResponse>() {
 
     override fun buildItemModel(
         currentPosition: Int,
         item: GetCharacterByIdResponse?
     ): EpoxyModel<*> {
-        return CharacterGridItem(item!!).id(item.id)
+        return CharacterGridItem(item!!,onCharacterClick)
+            .id(item.id)
     }
 
     //we have this in PagedListEpoxyController because don't implement required list in this file
@@ -45,11 +48,14 @@ class CharacterListPagingEpoxyController:PagedListEpoxyController<GetCharacterBy
 
 
 
-    data class CharacterGridItem(val item:GetCharacterByIdResponse)
+    data class CharacterGridItem(val item:GetCharacterByIdResponse,val onClick:(Int)->Unit)
         :ViewBindingKotlinModel<ModelCharacterListModelBinding>(R.layout.model_character_list_model) {
         override fun ModelCharacterListModelBinding.bind() {
             tvCharacterName.text=item.name
             Picasso.get().load(item.image).into(ivCharacterImage)
+            root.setOnClickListener {
+                onClick(item.id)
+            }
         }
     }
 

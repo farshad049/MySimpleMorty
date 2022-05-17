@@ -4,6 +4,7 @@ import com.airbnb.epoxy.EpoxyController
 import com.example.mysimplemorty.databinding.ModelCharacterDetailsDataPointBinding
 import com.example.mysimplemorty.databinding.ModelCharacterDetailsHeaderBinding
 import com.example.mysimplemorty.databinding.ModelCharacterDetailsImageBinding
+import com.example.mysimplemorty.domain.models.Character
 import com.example.mysimplemorty.epoxy.LoadingEpoxyModel
 import com.example.mysimplemorty.epoxy.ViewBindingKotlinModel
 import com.example.mysimplemorty.network.responseModel.GetCharacterByIdResponse
@@ -19,7 +20,7 @@ class CharacterDetailsEpoxyController:EpoxyController() {
             }
         }
 
-    var items: GetCharacterByIdResponse? = null
+    var items: Character? = null
         set(value) {
             field = value
             if (field != null) {
@@ -40,8 +41,8 @@ class CharacterDetailsEpoxyController:EpoxyController() {
 
         Header(items!!).id("header").addTo(this)
         Image(items!!.image).id("image").addTo(this)
-        DataPoint("Origin",items!!).id("date").addTo(this)
-        DataPoint("Species",items!!).id("date").addTo(this)
+        DataPoint("Origin",items!!.origin.name).id("Origin").addTo(this)
+        DataPoint("Species",items!!.species).id("Species").addTo(this)
 
     }
 
@@ -53,7 +54,7 @@ class CharacterDetailsEpoxyController:EpoxyController() {
 
 
 
-    data class Header(val item:GetCharacterByIdResponse)
+    data class Header(val item:Character)
         : ViewBindingKotlinModel<ModelCharacterDetailsHeaderBinding>(R.layout.model_character_details_header) {
         override fun ModelCharacterDetailsHeaderBinding.bind() {
            tvName.text=item.name
@@ -73,11 +74,11 @@ class CharacterDetailsEpoxyController:EpoxyController() {
         }
     }
 
-    data class DataPoint(val title:String,val item:GetCharacterByIdResponse)
+    data class DataPoint(val title:String,val description:String)
         : ViewBindingKotlinModel<ModelCharacterDetailsDataPointBinding>(R.layout.model_character_details_data_point) {
         override fun ModelCharacterDetailsDataPointBinding.bind() {
             tvTitle.text=title
-            tvDescription.text= item.origin.name
+            tvDescription.text= description
         }
     }
 

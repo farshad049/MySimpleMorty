@@ -1,16 +1,19 @@
 package com.example.mysimplemorty.characters
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
-import com.example.mysimplemorty.R
-import com.example.mysimplemorty.SharedViewModel
+import com.example.mysimplemorty.CharacterDetailActivity
 import com.example.mysimplemorty.databinding.ActivityCharacterListBinding
 
 class CharacterListPagingActivity : AppCompatActivity() {
     private var _binding: ActivityCharacterListBinding? = null
     private val binding get() = _binding!!
-    private val epoxyController=CharacterListPagingEpoxyController()
+    private val epoxyController=CharacterListPagingEpoxyController(::onCharacterClick)
+
+
+
     private val viewModel: CharactersViewModel by lazy {
         ViewModelProvider(this).get(CharactersViewModel::class.java)
     }
@@ -39,6 +42,12 @@ class CharacterListPagingActivity : AppCompatActivity() {
 
 
     }//FUN
+
+    private fun onCharacterClick(characterId: Int) {
+        val intent=Intent(this,CharacterDetailActivity::class.java)
+        intent.putExtra("characterId",characterId)
+        startActivity(intent)
+    }
 
 
 
