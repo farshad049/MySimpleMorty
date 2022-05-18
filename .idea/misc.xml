@@ -6,8 +6,11 @@
         <entry key="..\:/Users/admin/AndroidStudioProjects/MySimpleMorty/app/src/main/res/drawable/ic_female_24.xml" value="0.2595" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/MySimpleMorty/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2595" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/MySimpleMorty/app/src/main/res/drawable/ic_male_24.xml" value="0.2595" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/MySimpleMorty/app/src/main/res/layout/activity_character_detail.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/MySimpleMorty/app/src/main/res/layout/activity_character_list.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/MySimpleMorty/app/src/main/res/layout/activity_main.xml" value="0.35260416666666666" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/MySimpleMorty/app/src/main/res/layout/fragment_character_detail.xml" value="0.365625" />
+        <entry key="..\:/Users/admin/AndroidStudioProjects/MySimpleMorty/app/src/main/res/layout/fragment_character_list.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/MySimpleMorty/app/src/main/res/layout/model_character_detail_header.xml" value="0.27421875" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/MySimpleMorty/app/src/main/res/layout/model_character_details_data_point.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/MySimpleMorty/app/src/main/res/layout/model_character_details_date_point.xml" value="0.36666666666666664" />

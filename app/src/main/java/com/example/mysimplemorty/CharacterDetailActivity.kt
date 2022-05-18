@@ -22,20 +22,9 @@ class CharacterDetailActivity : AppCompatActivity() {
         _binding = ActivityCharacterDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        binding.epoxyRecyclerView.setControllerAndBuildModels(controller)
 
-        viewModel.refreshCharacter(intent.getIntExtra("characterId",1))
 
-        viewModel.characterByIdLiveData.observe(this){
-            controller.items=it
-            if (it==null){
-                Toast.makeText(this@CharacterDetailActivity,"not successful",Toast.LENGTH_SHORT).show()
-                //be sure to return and not continue the rest of function
-                return@observe
-            }
-        }
 
 
 

@@ -17,7 +17,7 @@
         android:theme="@style/Theme.MySimpleMorty"
         tools:targetApi="31">
         <activity
-            android:name=".characters.CharacterListPagingActivity"
+            android:name=".MainActivity"
             android:exported="true" >
             //by this modo, this activity will be the first activity that runs on the screen
             <intent-filter>
