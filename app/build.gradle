@@ -63,6 +63,11 @@ dependencies {
     //paging
     def pagingVersion="3.1.1"
     implementation "androidx.paging:paging-runtime-ktx:$pagingVersion"
+    //okhttp interceptor
+    implementation("com.squareup.okhttp3:logging-interceptor:4.9.3")
+    //chucker interceptor
+    debugImplementation "com.github.chuckerteam.chucker:library:3.5.2"
+    releaseImplementation "com.github.chuckerteam.chucker:library-no-op:3.5.2"
 
 
 

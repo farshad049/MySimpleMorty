@@ -108,7 +108,7 @@ class CharacterDetailsEpoxyController:EpoxyController() {
         :ViewBindingKotlinModel<ModelEpisodeCarouselItemBinding>(R.layout.model_episode_carousel_item) {
         override fun ModelEpisodeCarouselItemBinding.bind() {
             tvSeasonEpisode.text=episode.episode
-            tvEpisodeName.text="${episode.name} + /n ${episode.airDate}"
+            tvEpisodeName.text="${episode.name}\n${episode.airDate}"
         }
     }
 
