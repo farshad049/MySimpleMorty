@@ -12,7 +12,7 @@ import com.squareup.picasso.Picasso
 
 class CharacterDetailsEpoxyController:EpoxyController() {
 
-    var isLoading:Boolean=false
+    var isLoading:Boolean=true
         set(value) {
             field=value
             if (field){

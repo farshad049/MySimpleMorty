@@ -19,11 +19,15 @@
         <activity
             android:name=".MainActivity"
             android:exported="true" >
+            <nav-graph android:value="@navigation/nav_graph"/>
+
             //by this modo, this activity will be the first activity that runs on the screen
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
+
             </intent-filter>
+
         </activity>
 
     </application>
