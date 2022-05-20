@@ -1,10 +1,7 @@
-package com.example.mysimplemorty.characters
+package com.example.mysimplemorty
 
-import com.airbnb.epoxy.EpoxyController
 import com.airbnb.epoxy.EpoxyModel
 import com.airbnb.epoxy.paging.PagedListEpoxyController
-import com.example.mysimplemorty.R
-import com.example.mysimplemorty.databinding.ModelCharacterDetailsHeaderBinding
 import com.example.mysimplemorty.databinding.ModelCharacterListModelBinding
 import com.example.mysimplemorty.databinding.ModelCharacterListTitleBinding
 import com.example.mysimplemorty.epoxy.LoadingEpoxyModel
@@ -12,7 +9,7 @@ import com.example.mysimplemorty.epoxy.ViewBindingKotlinModel
 import com.example.mysimplemorty.network.responseModel.GetCharacterByIdResponse
 import com.squareup.picasso.Picasso
 
-class CharacterListPagingEpoxyController(
+class CharacterListEpoxyController(
     private val onCharacterClick:(Int) -> Unit
 ):PagedListEpoxyController<GetCharacterByIdResponse>() {
 

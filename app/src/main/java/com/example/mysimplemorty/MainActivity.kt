@@ -1,21 +1,16 @@
 package com.example.mysimplemorty
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.activity.viewModels
-import androidx.lifecycle.ViewModelProvider
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
-import com.example.mysimplemorty.characters.CharacterListPagingEpoxyController
-import com.example.mysimplemorty.characters.CharactersViewModel
-import com.example.mysimplemorty.databinding.ActivityCharacterListBinding
+import com.example.mysimplemorty.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private var _binding: ActivityCharacterListBinding? = null
+    private var _binding: ActivityMainBinding? = null
     private val binding get() = _binding!!
     lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -23,10 +18,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        _binding=ActivityCharacterListBinding.inflate(layoutInflater)
+        _binding=ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //val viewModel:SharedViewModel by viewModels()
+
 
 
 
@@ -36,6 +31,9 @@ class MainActivity : AppCompatActivity() {
 
         //enable the action bar
         appBarConfiguration= AppBarConfiguration(navController.graph)
+        setupActionBarWithNavController(navController,appBarConfiguration)
+
+        //set up fragment title in toolbar
         setupActionBarWithNavController(navController,appBarConfiguration)
 
 

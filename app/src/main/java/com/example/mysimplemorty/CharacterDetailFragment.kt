@@ -2,21 +2,15 @@ package com.example.mysimplemorty
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
-import com.example.BaseFragment
-import com.example.mysimplemorty.characters.CharactersViewModel
 import com.example.mysimplemorty.databinding.FragmentCharacterDetailBinding
-import com.example.mysimplemorty.databinding.FragmentCharacterListBinding
-import com.example.mysimplemorty.network.responseModel.GetCharacterByIdResponse
 
-class CharacterDetailFragment:BaseFragment() {
+class CharacterDetailFragment: Fragment() {
     private var _binding: FragmentCharacterDetailBinding? = null
     private val binding get() = _binding!!
     private val viewModel: SharedViewModel by lazy {

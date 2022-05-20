@@ -1,6 +1,5 @@
 package com.example.mysimplemorty
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,19 +7,16 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.BaseFragment
-import com.example.mysimplemorty.characters.CharacterListPagingEpoxyController
 import com.example.mysimplemorty.characters.CharactersViewModel
 import com.example.mysimplemorty.databinding.FragmentCharacterListBinding
-import com.example.mysimplemorty.network.responseModel.GetCharacterByIdResponse
 
-class CharacterListFragment:BaseFragment() {
+class CharacterListFragment: Fragment() {
     private var _binding: FragmentCharacterListBinding? = null
     private val binding get() = _binding!!
     private val viewModel: CharactersViewModel by lazy {
         ViewModelProvider(this).get(CharactersViewModel::class.java)
     }
-    private val epoxyController= CharacterListPagingEpoxyController(::onCharacterClick)
+    private val epoxyController= CharacterListEpoxyController(::onCharacterClick)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentCharacterListBinding.inflate(inflater, container, false)
