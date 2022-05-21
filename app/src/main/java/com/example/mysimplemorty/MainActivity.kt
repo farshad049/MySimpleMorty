@@ -8,7 +8,9 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.mysimplemorty.databinding.ActivityMainBinding
+import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
     private var _binding: ActivityMainBinding? = null
@@ -22,25 +24,25 @@ class MainActivity : AppCompatActivity() {
         _binding=ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-
-
-
         //enable the nav controller
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.navHostFragment) as NavHostFragment
         navController = navHostFragment.navController
 
         //enable the action bar
-        appBarConfiguration= AppBarConfiguration(navController.graph)
+        appBarConfiguration= AppBarConfiguration(
+            //set this to fragment to be as top level fragment , so back button and nav bar wont be shown on them
+            topLevelDestinationIds = setOf(R.id.characterListFragment,R.id.episodeListFragment),
+            //this is for setting the drawer layout
+            drawerLayout = binding.drawerLayout
+            )
+
         setupActionBarWithNavController(navController,appBarConfiguration)
 
         //set up fragment title in toolbar
         setupActionBarWithNavController(navController,appBarConfiguration)
 
-
-
-
-
+        //enable navigation drawer
+        findViewById<NavigationView>(R.id.nav_view).setupWithNavController(navController)
 
 
 
