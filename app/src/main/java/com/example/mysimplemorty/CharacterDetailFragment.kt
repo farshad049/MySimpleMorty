@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.mysimplemorty.databinding.FragmentCharacterDetailBinding
 
@@ -32,7 +33,7 @@ class CharacterDetailFragment: Fragment() {
 
         binding.epoxyRecyclerView.setControllerAndBuildModels(controller)
 
-        viewModel.refreshCharacter(safeArgs.characterId)
+        viewModel.fetchCharacter(safeArgs.characterId)
 
         viewModel.characterByIdLiveData.observe(viewLifecycleOwner){
             controller.items=it
@@ -40,6 +41,7 @@ class CharacterDetailFragment: Fragment() {
                 Toast.makeText(requireContext(),"not successful", Toast.LENGTH_SHORT).show()
                 //be sure to return and not continue the rest of function
                 return@observe
+                findNavController().navigateUp()
             }
         }
 
