@@ -2,21 +2,36 @@ package com.example.mysimplemorty
 
 import com.example.mysimplemorty.domain.mappers.CharacterMapper
 import com.example.mysimplemorty.domain.models.Character
+import com.example.mysimplemorty.network.NetworkCache
 import com.example.mysimplemorty.network.responseModel.GetCharacterByIdResponse
 import com.example.mysimplemorty.network.NetworkLayer
 import com.example.mysimplemorty.network.responseModel.GetEpisodeByIdResponse
 
 class SharedRepository {
+
     suspend fun getCharacterById(characterId:Int): Character? {
+        //handle the cache
+       val cachedCharacter= NetworkCache.characterMap[characterId]
+       if (cachedCharacter != null){
+           return cachedCharacter
+       }
+
         val request= NetworkLayer.apiClient.getCharacterById(characterId)
         //if request failed because of network issues
         if (request.failed || !request.isSuccessful) {
             return null
         }
-        val networkEpisode = getEpisodesFromCharacterResponse(request.body)
-        return CharacterMapper.buildFrom(response = request.body,episodes=networkEpisode)
 
+        val networkEpisode = getEpisodesFromCharacterResponse(request.body)
+        val character=CharacterMapper.buildFrom(response = request.body,episodes=networkEpisode)
+
+        //update the cache state
+        NetworkCache.characterMap[characterId]=character
+        return character
     }
+
+
+
 
     private suspend fun getEpisodesFromCharacterResponse(characterResponse:GetCharacterByIdResponse)
     : List<GetEpisodeByIdResponse> {
