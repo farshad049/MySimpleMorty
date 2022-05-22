@@ -43,6 +43,8 @@ class MainActivity : AppCompatActivity() {
 
         //enable navigation drawer
         findViewById<NavigationView>(R.id.nav_view).setupWithNavController(navController)
+        //set the start page to be selected by default in drawer menu
+       // findViewById<NavigationView>(R.id.nav_view).setCheckedItem(navController.graph.startDestinationId)
 
 
 
