@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/characterListFragment"
-        android:name="com.example.mysimplemorty.CharacterListFragment"
+        android:name="com.example.mysimplemorty.characters.CharacterListFragment"
         android:label="Character List"
         tools:layout="@layout/fragment_character_list">
         <action
@@ -21,7 +21,7 @@
 
     <fragment
         android:id="@+id/characterDetailFragment"
-        android:name="com.example.mysimplemorty.CharacterDetailFragment"
+        android:name="com.example.mysimplemorty.characters.characterDetail.CharacterDetailFragment"
         android:label="Character Detail"
         tools:layout="@layout/fragment_character_detail">
 
@@ -37,7 +37,7 @@
 
     <fragment
         android:id="@+id/episodeListFragment"
-        android:name="com.example.mysimplemorty.EpisodeListFragment"
+        android:name="com.example.mysimplemorty.episodes.EpisodeListFragment"
         android:label="EpisodeListFragment"
         tools:layout="@layout/fragment_episode_list"/>
 </navigation>

@@ -1,4 +1,4 @@
-package com.example.mysimplemorty
+package com.example.mysimplemorty.characters.characterDetail
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,8 +14,8 @@ import com.example.mysimplemorty.databinding.FragmentCharacterDetailBinding
 class CharacterDetailFragment: Fragment() {
     private var _binding: FragmentCharacterDetailBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: SharedViewModel by lazy {
-        ViewModelProvider(this).get(SharedViewModel::class.java)
+    private val viewModel: CharacterDetailViewModel by lazy {
+        ViewModelProvider(this).get(CharacterDetailViewModel::class.java)
     }
     private val safeArgs:CharacterDetailFragmentArgs by navArgs()
 

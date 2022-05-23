@@ -48,27 +48,35 @@ dependencies {
 
     //retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+
     //Moshi
     implementation 'com.squareup.moshi:moshi-kotlin:1.13.0'
     implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
+
     //picasso
     implementation 'com.squareup.picasso:picasso:2.8'
+
     // view model coroutine
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0'
+
     //Epoxy
     def epoxyVersion="5.0.0-beta05"
     implementation "com.airbnb.android:epoxy:$epoxyVersion"
     kapt("com.airbnb.android:epoxy-processor:$epoxyVersion")
     implementation "com.airbnb.android:epoxy-paging:$epoxyVersion"
+    implementation "com.airbnb.android:epoxy-paging3:$epoxyVersion"
 
     //paging
     def pagingVersion="3.1.1"
     implementation "androidx.paging:paging-runtime-ktx:$pagingVersion"
+
     //okhttp interceptor
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.3")
+
     //chucker interceptor
     debugImplementation "com.github.chuckerteam.chucker:library:3.5.2"
     releaseImplementation "com.github.chuckerteam.chucker:library-no-op:3.5.2"
+
     // Navigation Components
     def nav_version = "2.4.2"
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"

@@ -1,6 +1,7 @@
 package com.example.mysimplemorty.characters
 
 import androidx.paging.PageKeyedDataSource
+import com.example.mysimplemorty.network.NetworkLayer
 import com.example.mysimplemorty.network.responseModel.GetCharacterByIdResponse
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -10,7 +11,7 @@ import kotlinx.coroutines.launch
 
 class CharactersDataSource(
     private val coroutineScope:CoroutineScope,
-    private val repository:CharactersRepository
+    private val repository: CharacterRepository
     )
     :PageKeyedDataSource<Int,GetCharacterByIdResponse>() {
     override fun loadInitial(

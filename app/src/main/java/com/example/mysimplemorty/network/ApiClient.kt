@@ -3,6 +3,7 @@ package com.example.mysimplemorty.network
 import com.example.mysimplemorty.network.responseModel.GetCharacterByIdResponse
 import com.example.mysimplemorty.network.responseModel.GetCharactersPageResponse
 import com.example.mysimplemorty.network.responseModel.GetEpisodeByIdResponse
+import com.example.mysimplemorty.network.responseModel.GetEpisodePageResponse
 import retrofit2.Response
 
 //in order to add a extra layer for checking network issues
@@ -24,6 +25,10 @@ class ApiClient(private val rickAndMortyService: RickAndMortyService){
 
     suspend fun getEpisodeRange(episodeRange:String):SimpleResponse<List<GetEpisodeByIdResponse>>{
         return safeApiCall { rickAndMortyService.getEpisodeRange(episodeRange) }
+    }
+
+    suspend fun getEpisodePage(pageIndex:Int):SimpleResponse<GetEpisodePageResponse>{
+        return safeApiCall { rickAndMortyService.getEpisodePage(pageIndex) }
     }
 
 

@@ -1,7 +1,8 @@
-package com.example.mysimplemorty
+package com.example.mysimplemorty.characters
 
 import com.airbnb.epoxy.EpoxyModel
 import com.airbnb.epoxy.paging.PagedListEpoxyController
+import com.example.mysimplemorty.R
 import com.example.mysimplemorty.databinding.ModelCharacterListModelBinding
 import com.example.mysimplemorty.databinding.ModelCharacterListTitleBinding
 import com.example.mysimplemorty.epoxy.LoadingEpoxyModel
@@ -21,7 +22,7 @@ class CharacterListEpoxyController(
             .id(item.id)
     }
 
-    //we have this in PagedListEpoxyController because don't implement required list in this file
+    //we have this in PagedListEpoxyController because we don't implement required lists in PagedListEpoxyController
     override fun addModels(models: List<EpoxyModel<*>>) {
         if (models.isEmpty()){
             LoadingEpoxyModel().id("loading").addTo(this)
@@ -30,7 +31,7 @@ class CharacterListEpoxyController(
         //add first five character with its header
         Header("Main Family").id("main_family_header").addTo(this)
         super.addModels(models.subList(0,5))
-
+        //make list from character number 5 to the end
        (models.subList(5,models.size) as List<CharacterGridItem>).groupBy {
            it.item.name[0].uppercaseChar()
        }.forEach {
