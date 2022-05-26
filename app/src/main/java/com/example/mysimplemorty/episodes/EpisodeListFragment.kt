@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.example.mysimplemorty.databinding.FragmentCharacterDetailBinding
 
 import com.example.mysimplemorty.databinding.FragmentEpisodeListBinding
@@ -28,7 +29,7 @@ class EpisodeListFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentEpisodeListBinding.bind(view)
 
-        val epoxyController=EpisodeListEpoxyController()
+        val epoxyController=EpisodeListEpoxyController(:: onEpisodeClick)
 
         //flow collect needs to run inside coroutine
         lifecycleScope.launch {
@@ -63,6 +64,11 @@ class EpisodeListFragment: Fragment() {
 
 
     }//FUN
+
+    private fun onEpisodeClick(episodeId:Int){
+        val directions=EpisodeListFragmentDirections.actionEpisodeListFragmentToEpisodeDetailFragment(episodeId)
+        findNavController().navigate(directions)
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="?background"
+    android:layout_marginBottom="48dp">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvSeasonEpisode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Season1 Episode1"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:textColor="?colorOnBackground"
+        />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvSeasonEpisode"
+        tools:text="december 2,2013"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@id/tvSeasonEpisode"
+        android:textColor="?colorOnBackground"
+        android:layout_marginEnd="16dp"
+        />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvEpisodeName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/tvSeasonEpisode"
+        app:layout_constraintTop_toBottomOf="@+id/tvSeasonEpisode"
+        tools:text="Pilot"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:textColor="?colorOnBackground"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="12dp"
+        />
+    <View
+        android:id="@+id/view"
+        android:layout_marginTop="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintTop_toBottomOf="@id/tvEpisodeName"
+        android:background="?colorOnSurface"
+        />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvCharacter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Characters"
+        android:textSize="26sp"
+        android:textColor="?colorOnSurface"
+        app:layout_constraintTop_toBottomOf="@id/view"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="@id/tvSeasonEpisode"
+        />
+    <com.airbnb.epoxy.EpoxyRecyclerView
+        android:id="@+id/epoxyRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="220dp"
+        app:layout_constraintTop_toBottomOf="@id/tvCharacter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingHorizontal="12dp"
+        android:layout_marginTop="8dp"
+        tools:itemCount="4"
+        app:itemSpacing="8dp"
+        tools:listitem="@layout/model_episode_detail_image"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="horizontal"
+        />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

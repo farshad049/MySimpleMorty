@@ -1,4 +1,4 @@
-package com.example.mysimplemorty.characters.characterDetail
+package com.example.mysimplemorty.episodes.episodeDetail
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,54 +6,57 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.mysimplemorty.databinding.FragmentCharacterDetailBinding
+import com.example.mysimplemorty.databinding.FragmentEpisodeDetailBinding
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class CharacterDetailFragment: Fragment() {
-    private var _binding: FragmentCharacterDetailBinding? = null
+class EpisodeDetailBottomSheet:BottomSheetDialogFragment() {
+    private var _binding: FragmentEpisodeDetailBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: CharacterDetailViewModel by lazy {
-        ViewModelProvider(this).get(CharacterDetailViewModel::class.java)
-    }
-    private val safeArgs:CharacterDetailFragmentArgs by navArgs()
+    private val viewModel:EpisodeDetailViewModel by viewModels()
+    private val safeArgs:EpisodeDetailBottomSheetArgs by navArgs()
+    private val controller=EpisodeDetailEpoxyController()
 
-    private val controller= CharacterDetailsEpoxyController( ::onEpisodeClick)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        _binding = FragmentCharacterDetailBinding.inflate(inflater, container, false)
+        _binding = FragmentEpisodeDetailBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-
         binding.epoxyRecyclerView.setControllerAndBuildModels(controller)
 
-        viewModel.fetchCharacter(safeArgs.characterId)
+        viewModel.fetchEpisode(safeArgs.episodeId)
 
-        viewModel.characterByIdLiveData.observe(viewLifecycleOwner){
-            controller.items=it
+        viewModel.episodeByIdLiveData.observe(viewLifecycleOwner){
             if (it==null){
                 Toast.makeText(requireContext(),"not successful", Toast.LENGTH_SHORT).show()
                 //be sure to return and not continue the rest of function
                 return@observe
                 findNavController().navigateUp()
             }
+            binding.tvSeasonEpisode.text="Season ${it?.seasonNumber} Episode ${it?.episodeNumber}"
+            binding.tvdate.text=it?.airDate
+            binding.tvEpisodeName.text=it?.name
+            controller.items=it
+
         }
 
 
 
 
 
+
     }//FUN
-    private fun onEpisodeClick(episodeId:Int){
-        val directions=CharacterDetailFragmentDirections.actionCharacterDetailFragmentToEpisodeDetailFragment(episodeId)
-        findNavController().navigate(directions)
-    }
+
+
+
+
 
 
 

@@ -5,6 +5,7 @@ data class Episode(
     val name:String="",
     val airDate:String="",
     val episode:String="",
+    val character: List<Character> = listOf(),
     val seasonNumber:Int=0,
     val episodeNumber:Int=0,
 )

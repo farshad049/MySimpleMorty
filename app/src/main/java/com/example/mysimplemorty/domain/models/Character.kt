@@ -11,7 +11,7 @@ data class Character(
     val species: String = "",
     val status: String = "",
 
-) {
+    ) {
     data class Location(
         val name: String = "",
         val url: String = ""

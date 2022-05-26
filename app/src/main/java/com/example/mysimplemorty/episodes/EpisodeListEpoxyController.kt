@@ -11,10 +11,10 @@ import com.example.mysimplemorty.domain.models.Episode
 import com.example.mysimplemorty.epoxy.ViewBindingKotlinModel
 
 class EpisodeListEpoxyController(
-  //  val onEpisodeClick:(Int) -> Unit
+    val onEpisodeClick:(Int) -> Unit
 ): PagingDataEpoxyController<Episode>() {
     override fun buildItemModel(currentPosition: Int, item: Episode?): EpoxyModel<*> {
-        return EpisodeEpoxyModel(item!!, onClick = {})
+        return EpisodeEpoxyModel(item!!, onEpisodeClick)
             .id(item.id)
     }
 

@@ -23,10 +23,14 @@ interface RickAndMortyService {
     suspend fun getEpisodeById(@Path("episode-id") episodeId:Int):Response<GetEpisodeByIdResponse>
 
     @GET("episode/{episode-range}")
-    suspend fun getEpisodeRange(@Path("episode-range")episodeRange:String):Response<List<GetEpisodeByIdResponse>>
+    suspend fun getMultipleEpisode(@Path("episode-range")episodeRange:List<String>):Response<List<GetEpisodeByIdResponse>>
 
     @GET("episode/")
     suspend fun getEpisodePage(@Query("page") pageIndex:Int): Response<GetEpisodePageResponse>
+
+    @GET("character/{character-range}")
+    suspend fun getMultipleCharacter(@Path("character-range")characterRange:List<String>):Response<List<GetCharacterByIdResponse>>
+
 
 
 

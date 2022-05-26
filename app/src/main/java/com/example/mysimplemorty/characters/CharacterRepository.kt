@@ -53,9 +53,9 @@ class CharacterRepository {
         //this return something like this "[1,2,3]"
         val episodeRange=characterResponse.episode.map {
             it.substring(it.lastIndexOf("/")+1)
-        }.toString()
+        }
 
-        val request=NetworkLayer.apiClient.getEpisodeRange(episodeRange)
+        val request=NetworkLayer.apiClient.getMultipleEpisode(episodeRange)
 
         if (request.failed || !request.isSuccessful) {
             return emptyList()

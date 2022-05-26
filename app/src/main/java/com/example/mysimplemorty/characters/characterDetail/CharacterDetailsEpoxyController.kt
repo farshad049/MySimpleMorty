@@ -10,7 +10,9 @@ import com.example.mysimplemorty.epoxy.LoadingEpoxyModel
 import com.example.mysimplemorty.epoxy.ViewBindingKotlinModel
 import com.squareup.picasso.Picasso
 
-class CharacterDetailsEpoxyController:EpoxyController() {
+class CharacterDetailsEpoxyController(
+    val onEpisodeClick:(Int)->Unit
+):EpoxyController() {
 
     var isLoading:Boolean=true
         set(value) {
@@ -46,7 +48,7 @@ class CharacterDetailsEpoxyController:EpoxyController() {
         //episode list carousel section
         if (items!!.episodeList.isNotEmpty()){
             val list=items!!.episodeList.map {
-                EpisodeModel(it).id(it.id)
+                EpisodeModel(it,onEpisodeClick).id(it.id)
             }
             CarouselModel_()
                 .id("episode_carousel")
@@ -104,11 +106,12 @@ class CharacterDetailsEpoxyController:EpoxyController() {
         }
     }
 
-    data class EpisodeModel(val episode: Episode)
+    data class EpisodeModel(val episode: Episode,val onClick:(Int)->Unit)
         :ViewBindingKotlinModel<ModelEpisodeCarouselItemBinding>(R.layout.model_episode_carousel_item) {
         override fun ModelEpisodeCarouselItemBinding.bind() {
             tvSeasonEpisode.text=episode.episode
             tvEpisodeName.text="${episode.name}\n${episode.airDate}"
+            root.setOnClickListener { onClick(episode.id) }
         }
     }
 

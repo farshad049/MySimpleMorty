@@ -19,16 +19,20 @@ class ApiClient(private val rickAndMortyService: RickAndMortyService){
         return safeApiCall { rickAndMortyService.getCharactersPage(pageIndex) }
     }
 
-    suspend fun getEpisodeById(episodeId:Int):SimpleResponse<GetEpisodeByIdResponse>{
+    suspend fun getEpisodeById(episodeId: Int): SimpleResponse<GetEpisodeByIdResponse>{
         return safeApiCall { rickAndMortyService.getEpisodeById(episodeId) }
     }
 
-    suspend fun getEpisodeRange(episodeRange:String):SimpleResponse<List<GetEpisodeByIdResponse>>{
-        return safeApiCall { rickAndMortyService.getEpisodeRange(episodeRange) }
+    suspend fun getMultipleEpisode(episodeRange:List<String>):SimpleResponse<List<GetEpisodeByIdResponse>>{
+        return safeApiCall { rickAndMortyService.getMultipleEpisode(episodeRange) }
     }
 
     suspend fun getEpisodePage(pageIndex:Int):SimpleResponse<GetEpisodePageResponse>{
         return safeApiCall { rickAndMortyService.getEpisodePage(pageIndex) }
+    }
+
+    suspend fun getMultipleCharacter(characterRange: List<String>): SimpleResponse<List<GetCharacterByIdResponse>>{
+        return safeApiCall { rickAndMortyService.getMultipleCharacter(characterRange) }
     }
 
 

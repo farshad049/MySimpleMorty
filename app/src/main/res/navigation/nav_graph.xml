@@ -27,7 +27,6 @@
 
         <deepLink app:uri="https://simplemorty.com/character/{characterId}"/>
 
-
         <argument
             android:name="characterId"
             android:defaultValue="-1"
@@ -38,6 +37,25 @@
     <fragment
         android:id="@+id/episodeListFragment"
         android:name="com.example.mysimplemorty.episodes.EpisodeListFragment"
-        android:label="EpisodeListFragment"
+        android:label="Episode List"
         tools:layout="@layout/fragment_episode_list"/>
+    <dialog
+        android:id="@+id/episodeDetailFragment"
+        android:name="com.example.mysimplemorty.episodes.episodeDetail.EpisodeDetailBottomSheet"
+        android:label="EpisodeDetailFragment"
+        tools:layout="@layout/fragment_episode_detail">
+        <argument
+            android:name="episodeId"
+            android:defaultValue="-1"
+            app:argType="integer"
+            />
+    </dialog>
+
+
+
+
+
+
+
+
 </navigation>

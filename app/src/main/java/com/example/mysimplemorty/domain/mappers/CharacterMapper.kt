@@ -7,9 +7,12 @@ import kotlin.system.exitProcess
 
 object CharacterMapper {
 
-    fun buildFrom(response:GetCharacterByIdResponse,episodes:List<GetEpisodeByIdResponse>):Character{
+    fun buildFrom(
+        response: GetCharacterByIdResponse,
+        episodes: List<GetEpisodeByIdResponse> = emptyList()
+    ): Character {
         return Character(
-            episodeList = episodes.map{
+            episodeList = episodes.map {
                 EpisodeMapper.buildFrom(it)
             },
             gender = response.gender,
