@@ -57,5 +57,8 @@
 
 
 
-
+    <action
+        android:id="@+id/action_global_to_episodeDetailFragment"
+        app:destination="@id/episodeDetailFragment"
+        />
 </navigation>

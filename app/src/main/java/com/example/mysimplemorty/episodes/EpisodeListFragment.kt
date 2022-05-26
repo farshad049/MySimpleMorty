@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.example.mysimplemorty.NavGraphDirections
 import com.example.mysimplemorty.databinding.FragmentCharacterDetailBinding
 
 import com.example.mysimplemorty.databinding.FragmentEpisodeListBinding
@@ -66,7 +67,7 @@ class EpisodeListFragment: Fragment() {
     }//FUN
 
     private fun onEpisodeClick(episodeId:Int){
-        val directions=EpisodeListFragmentDirections.actionEpisodeListFragmentToEpisodeDetailFragment(episodeId)
+        val directions=NavGraphDirections.actionGlobalToEpisodeDetailFragment(episodeId)
         findNavController().navigate(directions)
     }
 

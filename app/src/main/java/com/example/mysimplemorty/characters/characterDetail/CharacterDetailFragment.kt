@@ -7,8 +7,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.mysimplemorty.NavGraphDirections
 import com.example.mysimplemorty.databinding.FragmentCharacterDetailBinding
 
 class CharacterDetailFragment: Fragment() {
@@ -51,7 +53,8 @@ class CharacterDetailFragment: Fragment() {
 
     }//FUN
     private fun onEpisodeClick(episodeId:Int){
-        val directions=CharacterDetailFragmentDirections.actionCharacterDetailFragmentToEpisodeDetailFragment(episodeId)
+        //this is for global directions, we use it when there is a destination that we may move to them from multiple sources
+        val directions=NavGraphDirections.actionGlobalToEpisodeDetailFragment(episodeId)
         findNavController().navigate(directions)
     }
 
