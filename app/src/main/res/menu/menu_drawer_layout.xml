@@ -8,7 +8,8 @@
                     android:title="All characters"
                     android:icon="@drawable/ic_people_24"
                     />
-                <item android:checkableBehavior="single"
+                <item android:id="@+id/characterSearchFragment"
+                    android:checkableBehavior="single"
                     android:title="Search Characters"
                     android:icon="@drawable/ic_search_24"
                 />

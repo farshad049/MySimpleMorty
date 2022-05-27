@@ -9,11 +9,12 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.example.mysimplemorty.R
 import com.example.mysimplemorty.databinding.FragmentCharacterListBinding
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
-class CharacterListFragment: Fragment() {
+class CharacterListFragment: Fragment(R.layout.fragment_character_list) {
     private var _binding: FragmentCharacterListBinding? = null
     private val binding get() = _binding!!
 
@@ -26,13 +27,9 @@ class CharacterListFragment: Fragment() {
 
     private val epoxyController= CharacterListEpoxyController(::onCharacterClick)
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        _binding = FragmentCharacterListBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        _binding=FragmentCharacterListBinding.bind(view)
 
 //        viewModel.charactersPageListLiveData.observe(viewLifecycleOwner){
 //            epoxyController.submitList(it)

@@ -28,6 +28,7 @@
         <entry key="..\:/Users/admin/AndroidStudioProjects/MySimpleMorty/app/src/main/res/layout/model_episode_list_item.xml" value="0.33" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/MySimpleMorty/app/src/main/res/layout/model_loading.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/admin/AndroidStudioProjects/MySimpleMorty/app/src/main/res/menu/menu_drawer_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/farshad/AndroidStudioProjects/MySimpleMorty/app/src/main/res/drawable/ic_male_24.xml" value="0.152" />
         <entry key="..\:/Users/farshad/AndroidStudioProjects/MySimpleMorty/app/src/main/res/drawable/ic_people_24.xml" value="0.2165" />
         <entry key="..\:/Users/farshad/AndroidStudioProjects/MySimpleMorty/app/src/main/res/drawable/ic_search_24.xml" value="0.152" />
         <entry key="..\:/Users/farshad/AndroidStudioProjects/MySimpleMorty/app/src/main/res/layout/activity_character_detail.xml" value="0.209375" />
@@ -38,6 +39,7 @@
         <entry key="..\:/Users/farshad/AndroidStudioProjects/MySimpleMorty/app/src/main/res/layout/fragment_character_list.xml" value="0.209375" />
         <entry key="..\:/Users/farshad/AndroidStudioProjects/MySimpleMorty/app/src/main/res/layout/fragment_episode_detail.xml" value="0.22" />
         <entry key="..\:/Users/farshad/AndroidStudioProjects/MySimpleMorty/app/src/main/res/layout/fragment_episode_list.xml" value="0.209375" />
+        <entry key="..\:/Users/farshad/AndroidStudioProjects/MySimpleMorty/app/src/main/res/layout/fragment_serarch_character.xml" value="0.209375" />
         <entry key="..\:/Users/farshad/AndroidStudioProjects/MySimpleMorty/app/src/main/res/layout/model_character_details_data_point.xml" value="0.209375" />
         <entry key="..\:/Users/farshad/AndroidStudioProjects/MySimpleMorty/app/src/main/res/layout/model_character_details_header.xml" value="0.209375" />
         <entry key="..\:/Users/farshad/AndroidStudioProjects/MySimpleMorty/app/src/main/res/layout/model_character_details_image.xml" value="0.209375" />

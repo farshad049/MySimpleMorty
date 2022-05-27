@@ -51,6 +51,12 @@
             />
     </dialog>
 
+    <fragment
+        android:id="@+id/characterSearchFragment"
+        android:name="com.example.mysimplemorty.characters.search.CharacterSearchFragment"
+        android:label="Character Search"
+        tools:layout="@layout/fragment_search_character"/>
+
 
 
 
@@ -61,4 +67,6 @@
         android:id="@+id/action_global_to_episodeDetailFragment"
         app:destination="@id/episodeDetailFragment"
         />
+
+
 </navigation>
