@@ -8,12 +8,16 @@
                     android:title="All characters"
                     android:icon="@drawable/ic_people_24"
                     />
+                <item android:checkableBehavior="single"
+                    android:title="Search Characters"
+                    android:icon="@drawable/ic_search_24"
+                />
             </group>
         </menu>
     </item>
 
 
-    <item android:title="characters">
+    <item android:title="episodes">
         <menu>
             <group android:checkableBehavior="single">
                 <item android:id="@+id/episodeListFragment"

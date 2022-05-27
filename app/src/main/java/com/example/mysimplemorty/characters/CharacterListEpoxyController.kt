@@ -2,9 +2,11 @@ package com.example.mysimplemorty.characters
 
 import com.airbnb.epoxy.EpoxyModel
 import com.airbnb.epoxy.paging.PagedListEpoxyController
+import com.airbnb.epoxy.paging3.PagingDataEpoxyController
 import com.example.mysimplemorty.R
 import com.example.mysimplemorty.databinding.ModelCharacterListModelBinding
 import com.example.mysimplemorty.databinding.ModelCharacterListTitleBinding
+import com.example.mysimplemorty.domain.models.Character
 import com.example.mysimplemorty.epoxy.LoadingEpoxyModel
 import com.example.mysimplemorty.epoxy.ViewBindingKotlinModel
 import com.example.mysimplemorty.network.responseModel.GetCharacterByIdResponse
@@ -12,11 +14,11 @@ import com.squareup.picasso.Picasso
 
 class CharacterListEpoxyController(
     private val onCharacterClick:(Int) -> Unit
-):PagedListEpoxyController<GetCharacterByIdResponse>() {
+): PagingDataEpoxyController<Character>() {
 
     override fun buildItemModel(
         currentPosition: Int,
-        item: GetCharacterByIdResponse?
+        item: Character?
     ): EpoxyModel<*> {
         return CharacterGridItem(item!!,onCharacterClick)
             .id(item.id)
@@ -46,7 +48,7 @@ class CharacterListEpoxyController(
 
 
 
-    data class CharacterGridItem(val item:GetCharacterByIdResponse,val onClick:(Int)->Unit)
+    data class CharacterGridItem(val item:Character,val onClick:(Int)->Unit)
         :ViewBindingKotlinModel<ModelCharacterListModelBinding>(R.layout.model_character_list_model) {
         override fun ModelCharacterListModelBinding.bind() {
             tvCharacterName.text=item.name
