@@ -42,7 +42,7 @@ class CharacterListFragment: Fragment(R.layout.fragment_character_list) {
             }
         }
 
-        binding.epoxyRecyclerView.setController(epoxyController)
+        binding.epoxyRecyclerView.setControllerAndBuildModels(epoxyController)
 
 
 

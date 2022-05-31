@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "177046837149",
+    "project_id": "mysimplemorty",
+    "storage_bucket": "mysimplemorty.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:177046837149:android:bb22912977f89bc5b00174",
+        "android_client_info": {
+          "package_name": "com.example.mysimplemorty"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "177046837149-lgf0hvftbc40ca55clsjk65qce00bmf7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-5ljOUlaWiX9VziYqjY1Hwano6tSUicI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "177046837149-lgf0hvftbc40ca55clsjk65qce00bmf7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

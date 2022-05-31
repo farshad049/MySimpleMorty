@@ -8,6 +8,7 @@ import com.example.mysimplemorty.databinding.ModelCharacterListTitleBinding
 import com.example.mysimplemorty.databinding.ModelEpisodeListItemBinding
 import com.example.mysimplemorty.domain.models.Character
 import com.example.mysimplemorty.domain.models.Episode
+import com.example.mysimplemorty.epoxy.LoadingEpoxyModel
 import com.example.mysimplemorty.epoxy.ViewBindingKotlinModel
 
 class EpisodeListEpoxyController(
@@ -19,6 +20,10 @@ class EpisodeListEpoxyController(
     }
 
     override fun addModels(models: List<EpoxyModel<*>>) {
+        if (models.isEmpty()){
+            LoadingEpoxyModel().id("loading").addTo(this)
+            return
+        }
         (models as List<EpisodeEpoxyModel>).groupBy {
             it.item.seasonNumber
         }.forEach {

@@ -23,14 +23,14 @@ class EpisodeDataSource(
             return LoadResult.Error(it)
         }
 
-
         return LoadResult.Page(
             //we map it because the parent function has to return Character
-            data = pageRequest.body.results.map { EpisodeMapper.buildFrom(it) },
+            data = pageRequest.bodyNullable?.results?.map { EpisodeMapper.buildFrom(it) } ?: emptyList(),
             prevKey = previewPage,
-            nextKey = getPageIndexFromNext(pageRequest.body.info.next)
+            nextKey = getPageIndexFromNext(pageRequest.bodyNullable?.info?.next)
         )
     }
+
 
     override fun getRefreshKey(state: PagingState<Int, Episode>): Int? {
         // Try to find the page key of the closest page to anchorPosition, from
@@ -45,6 +45,7 @@ class EpisodeDataSource(
             anchorPage?.prevKey?.plus(1) ?: anchorPage?.nextKey?.minus(1)
         }
     }
+
 
     //split "?page=2" from the end of "https://rickandmortyapi.com/api/character/?page=2" and take the page number, in order to use it as next page String address
     private fun getPageIndexFromNext(next:String?):Int?{
