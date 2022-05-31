@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MySimpleMorty</string>
+    <string name="app_name_home_screen">Morty</string>
 </resources>
