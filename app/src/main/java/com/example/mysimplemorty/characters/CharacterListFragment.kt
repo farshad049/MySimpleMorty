@@ -9,12 +9,15 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.example.mysimplemorty.BaseFragment
 import com.example.mysimplemorty.R
 import com.example.mysimplemorty.databinding.FragmentCharacterListBinding
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import java.lang.RuntimeException
 
-class CharacterListFragment: Fragment(R.layout.fragment_character_list) {
+class CharacterListFragment: BaseFragment(R.layout.fragment_character_list) {
     private var _binding: FragmentCharacterListBinding? = null
     private val binding get() = _binding!!
 
@@ -53,6 +56,10 @@ class CharacterListFragment: Fragment(R.layout.fragment_character_list) {
 
     }//FUN
     private fun onCharacterClick(characterId:Int) {
+        FirebaseCrashlytics.getInstance().recordException(
+            RuntimeException("character Id selected=$characterId")
+        )
+
         val directions=CharacterListFragmentDirections.actionCharacterListFragmentToCharacterDetailFragment(characterId)
         findNavController().navigate(directions)
     }

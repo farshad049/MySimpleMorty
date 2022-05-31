@@ -10,10 +10,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.mysimplemorty.BaseFragment
 import com.example.mysimplemorty.NavGraphDirections
+import com.example.mysimplemorty.R
 import com.example.mysimplemorty.databinding.FragmentCharacterDetailBinding
 
-class CharacterDetailFragment: Fragment() {
+class CharacterDetailFragment: BaseFragment(R.layout.fragment_character_detail) {
     private var _binding: FragmentCharacterDetailBinding? = null
     private val binding get() = _binding!!
     private val viewModel: CharacterDetailViewModel by lazy {
@@ -23,13 +25,10 @@ class CharacterDetailFragment: Fragment() {
 
     private val controller= CharacterDetailsEpoxyController( ::onEpisodeClick)
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        _binding = FragmentCharacterDetailBinding.inflate(inflater, container, false)
-        return binding.root
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        _binding=FragmentCharacterDetailBinding.bind(view)
 
 
 

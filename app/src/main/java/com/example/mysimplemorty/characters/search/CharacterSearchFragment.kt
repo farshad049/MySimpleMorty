@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.example.mysimplemorty.BaseFragment
 import com.example.mysimplemorty.R
 import com.example.mysimplemorty.databinding.FragmentSearchCharacterBinding
 import kotlinx.coroutines.Runnable
@@ -16,7 +17,7 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 
-class CharacterSearchFragment:Fragment(R.layout.fragment_search_character) {
+class CharacterSearchFragment:BaseFragment(R.layout.fragment_search_character) {
     private var _binding: FragmentSearchCharacterBinding? = null
     private val binding get() = _binding!!
     private val viewModel:CharacterSearchViewModel by viewModels()
@@ -46,7 +47,7 @@ class CharacterSearchFragment:Fragment(R.layout.fragment_search_character) {
 
         lifecycleScope.launch{
             viewModel.flow.collectLatest {
-                //at first we set local exception to null, in order to run the epoxy controller(look at apoxy controller code)
+                //at first we set local exception to null, in order to run the epoxy controller(look at epoxy controller code)
                 epoxyController.localException = null
                 epoxyController.submitData(it)
             }
