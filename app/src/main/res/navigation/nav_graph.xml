@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/characterListFragment"
-        android:name="com.example.mysimplemorty.characters.CharacterListFragment"
+        android:name="com.farshad.mysimplemorty.ui.characters.CharacterListFragment"
         android:label="Character List"
         tools:layout="@layout/fragment_character_list">
         <action
@@ -17,11 +17,14 @@
             app:exitAnim="@anim/slide_out_to_left"
             app:popExitAnim="@anim/slide_out_to_right"
             app:popEnterAnim="@anim/slide_in_from_left"/>
+        <action
+            android:id="@+id/action_characterListFragment_to_filterFragment"
+            app:destination="@id/filterFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/characterDetailFragment"
-        android:name="com.example.mysimplemorty.characters.characterDetail.CharacterDetailFragment"
+        android:name="com.farshad.mysimplemorty.ui.characters.characterDetail.CharacterDetailFragment"
         android:label="Character Detail"
         tools:layout="@layout/fragment_character_detail">
 
@@ -36,12 +39,12 @@
 
     <fragment
         android:id="@+id/episodeListFragment"
-        android:name="com.example.mysimplemorty.episodes.EpisodeListFragment"
+        android:name="com.farshad.mysimplemorty.ui.episodes.EpisodeListFragment"
         android:label="Episode List"
         tools:layout="@layout/fragment_episode_list"/>
     <dialog
         android:id="@+id/episodeDetailFragment"
-        android:name="com.example.mysimplemorty.episodes.episodeDetail.EpisodeDetailBottomSheet"
+        android:name="com.farshad.mysimplemorty.ui.episodes.episodeDetail.EpisodeDetailBottomSheet"
         android:label="EpisodeDetailFragment"
         tools:layout="@layout/fragment_episode_detail">
         <argument
@@ -53,7 +56,7 @@
 
     <fragment
         android:id="@+id/characterSearchFragment"
-        android:name="com.example.mysimplemorty.characters.search.CharacterSearchFragment"
+        android:name="com.farshad.mysimplemorty.ui.characters.search.CharacterSearchFragment"
         android:label="Character Search"
         tools:layout="@layout/fragment_search_character">
         <action
@@ -71,6 +74,11 @@
         android:id="@+id/action_global_to_episodeDetailFragment"
         app:destination="@id/episodeDetailFragment"
         />
+    <fragment
+        android:id="@+id/filterFragment"
+        android:name="com.farshad.mysimplemorty.ui.filter.FilterFragment"
+        android:label="FilterFragment"
+        tools:layout="@layout/fragment_filter"/>
 
 
 </navigation>

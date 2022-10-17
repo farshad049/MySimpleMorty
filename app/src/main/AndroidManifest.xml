@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.mysimplemorty">
+    package="com.farshad.mysimplemorty">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -21,7 +21,7 @@
             android:exported="true" >
             <nav-graph android:value="@navigation/nav_graph"/>
 
-            //by this modo, this activity will be the first activity that runs on the screen
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
